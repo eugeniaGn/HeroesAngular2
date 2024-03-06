@@ -1,0 +1,21 @@
+<form [formGroup]="Formulario">
+  <div class="div">
+    <p>Nombre</p>
+    <input pInputText type="text" formControlName="nombre" [style]="{width: '30vw'}" />
+  </div>
+
+  <div class="div">
+    <p>Clave</p>
+    <input pInputText type="text" formControlName="clave" [style]="{width: '30vw'}"/>
+  </div>
+
+  <div class="div">
+    <p>Acción</p>
+    <input pInputText type="text" formControlName="accion" [style]="{width: '30vw'}" />
+  </div>
+
+  <div>
+    <button pButton (click)="hideDialog()" type="button" icon="pi pi-times" label="Cancel" class="p-button-text"></button>
+    <button pButton [disabled]="!Formulario.valid" (click)="agregarPermiso()" type="button" icon="pi pi-check" label="Save" class="p-button-text"></button>
+  </div>
+</form>

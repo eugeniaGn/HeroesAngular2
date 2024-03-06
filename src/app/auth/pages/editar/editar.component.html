@@ -1,0 +1,33 @@
+<form [formGroup]="Formulario">
+  <p>Nombre</p>
+  <input pInputText type="text" formControlName="nombre" [style]="{width: '30vw'}" />
+
+  <p>Descripción</p>
+    <textarea pInputTextarea formControlName="descripcion" [style]="{width: '30vw'}"></textarea>
+
+    <p>Categoría</p>
+  <p-dropdown formControlName="categoria"
+  [options]="categorias"
+  placeholder="Selecciona una categoría"
+  [showClear]="true"
+  [style]="{width: '30vw'}"
+></p-dropdown>
+
+<p>Género</p>
+    <div class="field-radiobutton">
+      <p-radioButton inputId="hombre" value="hombre" formControlName="genero"></p-radioButton>
+      <label for="hombre">Hombre</label>
+    </div>
+    <div class="field-radiobutton">
+      <p-radioButton inputId="mujer" value="mujer" formControlName="genero"></p-radioButton>
+      <label for="mujer">Mujer</label>
+    </div>
+
+    <p>URL Imagen</p>
+    <input pInputText type="text" formControlName="url" [style]="{width: '30vw'}" />
+
+    <div>
+      <button pButton (click)="hideDialog()" type="button" icon="pi pi-times" label="Cancel" class="p-button-text"></button>
+      <button pButton [disabled]="!Formulario.valid" (click)="editarHeroe()" type="button" icon="pi pi-check" label="Save" class="p-button-text"></button>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+<!-- <p-dropdown [options]="usuarios" optionLabel="name"></p-dropdown> -->
+<p-dropdown [options]="usuarios" [(ngModel)]="usuarioSeleccionado" (onChange)="seleccionarUsuario($event)" optionLabel="name"></p-dropdown>
+
+<p-pickList
+  [source]="permisosDisponibles"
+  [target]="permisosAsignados"
+  sourceHeader="Permisos disponibles"
+  targetHeader="Permisos asignados"
+  [dragdrop]="true"
+  [responsive]="true"
+  [sourceStyle]="{ height: '300px' }"
+  [targetStyle]="{ height: '300px' }"
+  filterBy="name"
+  sourceFilterPlaceholder="Buscar"
+  targetFilterPlaceholder="Buscar"
+>
+  <ng-template let-permiso pTemplate="item">
+    <div class="permiso-item">
+      <div class="permiso-list-detail">
+        <h5 class="mb-2">{{ permiso.nombre }}</h5>
+        <span class="permiso-category">{{ permiso.accion }}</span>
+      </div>
+    </div>
+  </ng-template>
+</p-pickList>
+
+<button pButton pRipple (click)="guardarSeleccion()" type="button" label="Guardar" class="p-button-rounded"></button>
