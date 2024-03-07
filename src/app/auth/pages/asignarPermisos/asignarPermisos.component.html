@@ -1,5 +1,5 @@
 <p-toast></p-toast>
-<p-dropdown [options]="usuarios" [(ngModel)]="usuarioSeleccionado" (onChange)="seleccionarUsuario($event)" optionLabel="name"></p-dropdown>
+<p-dropdown [options]="usuarios" [(ngModel)]="usuarioSeleccionado" (onChange)="seleccionarUsuario($event)" optionLabel="name" placeholder="Selecciona un usuario"></p-dropdown>
 
 <p-pickList
   [source]="permisosDisponibles"
