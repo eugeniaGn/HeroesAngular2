@@ -1,5 +1,5 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
+import { MessageService, PrimeNGConfig } from 'primeng/api';
 import { ServicioService } from 'src/app/provider/servicio.service';
 
 @Component({
@@ -17,6 +17,7 @@ export class AsignarPermisosComponent implements OnInit {
   constructor(
     private primengConfig: PrimeNGConfig,
     public service: ServicioService,
+    private messageService: MessageService
     ) {
     }
 
@@ -74,16 +75,12 @@ export class AsignarPermisosComponent implements OnInit {
   seleccionarUsuario(event: any) {
     this.traerPermisosDisponibles(this.usuarioSeleccionado.id);
     this.traerPermisosAsignados(this.usuarioSeleccionado.id);
-    console.log('Disponibles: ', this.permisosDisponibles);
-    console.log('Asignados: ', this.permisosAsignados);
   }
 
   guardarSeleccion(): void {
-    console.log('Disponibles: ', this.permisosDisponibles);
-    console.log('Asignados: ', this.permisosAsignados);
     this.asignarPermisos();
     this.quitarPermisos();
-
+    this.messageService.add({ severity: 'success', summary: 'Exito!', detail: 'Permisos actualizados correctamente', life: 3000 });
   }
 
 }
