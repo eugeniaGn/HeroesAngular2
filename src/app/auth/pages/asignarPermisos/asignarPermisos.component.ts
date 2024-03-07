@@ -41,7 +41,6 @@ export class AsignarPermisosComponent implements OnInit {
     this.service.getHeroesId('permisosDisponiblesUser', id).subscribe((data: any) => {
       if(data){
         this.permisosDisponibles = data;
-        console.log(this.permisosDisponibles);
       }
       else {
         console.log("Error");
@@ -54,7 +53,6 @@ export class AsignarPermisosComponent implements OnInit {
 
       if(data){
         this.permisosAsignados = data;
-        console.log(this.permisosAsignados);
       }
       else {
         console.log("Error");

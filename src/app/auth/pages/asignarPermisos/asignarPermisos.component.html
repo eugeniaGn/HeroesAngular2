@@ -1,5 +1,9 @@
 <p-toast></p-toast>
+
+<div style="display: flex; justify-content:space-between; margin-top: 30px; margin-bottom: 20px; margin-left: 90px; margin-right: 90px">
 <p-dropdown [options]="usuarios" [(ngModel)]="usuarioSeleccionado" (onChange)="seleccionarUsuario($event)" optionLabel="name" placeholder="Selecciona un usuario"></p-dropdown>
+  <button pButton pRipple (click)="guardarSeleccion()" type="button" label="Guardar" class="p-button-rounded"></button>
+</div>
 
 <p-pickList
   [source]="permisosDisponibles"
@@ -23,5 +27,3 @@
     </div>
   </ng-template>
 </p-pickList>
-
-<button pButton pRipple (click)="guardarSeleccion()" type="button" label="Guardar" class="p-button-rounded"></button>
